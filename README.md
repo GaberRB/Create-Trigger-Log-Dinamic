@@ -2,27 +2,31 @@
 
 Cria uma trigger de log de forma dinâmica, apenas informando o nome da tabela será criado a tabela de registros e a trigger em um diretório especifico do banco de dados oracle.
 
-APÓS EXECUÇÃO
-VERIFICAR O OUTPUT DO CAMINHO DA GERAÇÃO DOS ARQUIVOS.
+Após Execução
+Verificar O Output Do Caminho Da Geração Dos Arquivos.
+ 
+Procedimento Para Criar Trigger De Log De Uma Respectiva Tabela,
+Será Criado Com Base Em Todas As Colunas E Será Gravado Qualquer
+Alteração De Update, Os Registros Serão Inseridos Na Tabela_log,
+Ao Executar O Procedimento Será Gerado 2 Arquivos Txt, Para Criação
+Da Tabela E Da Trigger;
+ 
+Os Logs Serão Demostrados Da Seguinte Forma 
+Tabela : Nome Da Tabela De Log
+Chave : Primary Key Da Tabela
+Data : Data De Alteração
+Conteúdo: Coluna Vlrdesccomercial Alterado De 1 Para: 0
+Vsuserbanco: Usuario Do Banco 
+Vsterminal: Ip Da Maquina
+Vsmodulo:  Aplicação 
+Vsaction: Ação Realizada Via Banco   
+Vsuserapp: Usuario Da Aplicação
+Vsusermaq: Usuario Do Sistema Operacional  
 
-PROCEDIMENTO PARA CRIAR TRIGGER DE LOG DE UMA RESPECTIVA TABELA,
-SERÁ CRIADO COM BASE EM TODAS AS COLUNAS E SERÁ GRAVADO QUALQUER
-ALTERAÇÃO DE UPDATE, OS REGISTROS SERÃO INSERIDOS NA TABELA_LOG,
-AO EXECUTAR O PROCEDIMENTO SERÁ GERADO 2 ARQUIVOS TXT, PARA CRIAÇÃO
-DA TABELA E DA TRIGGER;
+<pre>
+  <code>
+    <span style="color: red">
 
-OS LOGS SERÃO DEMOSTRADOS DA SEGUINTE FORMA 
-TABELA : NOME DA TABELA DE LOG
-CHAVE : PRIMARY KEY DA TABELA
-DATA : DATA DE ALTERAÇÃO
-CONTEÚDO: Coluna VLRDESCCOMERCIAL alterado DE 1 PARA: 0
-VSUSERBANCO: USUARIO DO BANCO 
-VSTERMINAL: IP DA MAQUINA
-VSMODULO:  APLICAÇÃO 
-VSACTION: AÇÃO REALIZADA VIA BANCO   
-VSUSERAPP: USUARIO DA APLICAÇÃO
-VSUSERMAQ: USUARIO DO SISTEMA OPERACIONAL  
-*/
 DECLARE
 DIRUTL VARCHAR2(4000);
 NOMETABELA VARCHAR2(4000) := ''; --NOME DA TABELA PARA CRIAR LOG
@@ -39,3 +43,7 @@ BEGIN
   FROM V$INSTANCE;
   DBMS_OUTPUT.put_line(VOUT);
 END;
+
+</span>
+  </code>
+</pre>
